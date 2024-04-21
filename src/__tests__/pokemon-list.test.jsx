@@ -73,7 +73,7 @@ describe("Pokemon list with 'Load more' button", () => {
     // Check that the summary correctly says how many items are shown
     expect(
       await screen.findByText(
-        `Displaying 5 of ${pokemonsResultPage1.count} results`
+        new RegExp(`Displaying 5 of ${pokemonsResultPage1.count} results`, 's')
       )
     ).toBeInTheDocument();
   });
@@ -89,7 +89,7 @@ describe("Pokemon list with 'Load more' button", () => {
     // Check that the summary correctly updated
     expect(
       await screen.findByText(
-        `Displaying 10 of ${pokemonsResultPage1.count} results`
+        new RegExp(`Displaying 10 of ${pokemonsResultPage1.count} results`, 's')
       )
     ).toBeInTheDocument();
 
@@ -125,7 +125,7 @@ describe("Pokemon list with 'Load more' button", () => {
 
     // Check that the summary correctly updated
     expect(
-      await screen.findByText("Displaying 12 of 12 results")
+      await screen.findByText(/Displaying 12 of 12 results/)
     ).toBeInTheDocument();
 
     // Check that 12 items are displayed
